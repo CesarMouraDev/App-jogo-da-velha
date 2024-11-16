@@ -32,6 +32,13 @@ for(let i = 0; i < boxes.length; i++) {
 
         this.appendChild(cloneEl);
 
+        //computar jogada
+        if(player1 == player2) {
+            player1++;
+       } else {
+            player2++;
+       }
+
     })
 
 }
