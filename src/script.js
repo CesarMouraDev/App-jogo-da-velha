@@ -28,6 +28,7 @@ for(let i = 0; i < boxes.length; i++) {
             el = o;
         }
 
+      if(this.childNodes.length == 0) {
         let cloneEl = el.cloneNode(true)
 
         this.appendChild(cloneEl);
@@ -38,6 +39,7 @@ for(let i = 0; i < boxes.length; i++) {
        } else {
             player2++;
        }
+      }
 
     })
 
