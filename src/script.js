@@ -240,7 +240,19 @@ function declareWinner(winner) {
 
     //esconde mes
     setTimeout(function() {
+        messageContainer.classList.add("hide");
 
     }, 3000 );
+
+    //zera a jogadas
+    player1 = 0;
+    player2 = 0;
+
+    //remover x e o
+    let boxesToRemove = document.querySelectorAll(".box div");
+
+    for(let i = 0; i < boxesToRemove.length; i++) {
+        boxesToRemove[i].parentNode.removeChild(boxesToRemove[i]);
+    }
 
 }
