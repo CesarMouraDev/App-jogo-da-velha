@@ -74,10 +74,10 @@ function checkWinCondition() {
 
         if(b1Child == 'x' && b2Child == 'x' && b3Child == 'x') {
             //x
-            console.log("x venceu")
+            declareWinner('x');
         } else if(b1Child == 'o' && b2Child == 'o' && b3Child == 'o') {
             //
-            console.log("o venceu")
+            declareWinner('o');
           }
 
     }
@@ -89,10 +89,10 @@ function checkWinCondition() {
 
         if(b4Child == 'x' && b5Child == 'x' && b6Child == 'x') {
             //x
-            console.log("x venceu")
+            declareWinner('x');
         } else if(b4Child == 'o' && b5Child == 'o' && b6Child == 'o') {
             //
-            console.log("o venceu")
+            declareWinner('o');
           }
 
     }
@@ -104,10 +104,10 @@ function checkWinCondition() {
 
         if(b7Child == 'x' && b8Child == 'x' && b9Child == 'x') {
             //x
-            console.log("x venceu")
+            declareWinner('x');
         } else if(b7Child == 'o' && b8Child == 'o' && b9Child == 'o') {
             //
-            console.log("o venceu")
+            declareWinner('o');
           }
 
     }
@@ -120,10 +120,10 @@ function checkWinCondition() {
 
         if(b1Child == 'x' && b5Child == 'x' && b9Child == 'x') {
             //x
-            console.log("x venceu")
+            declareWinner('x');
         } else if(b1Child == 'o' && b5Child == 'o' && b9Child == 'o') {
             //
-            console.log("o venceu")
+            declareWinner('o');
           }
 
     }
@@ -134,10 +134,10 @@ function checkWinCondition() {
 
         if(b3Child == 'x' && b5Child == 'x' && b7Child == 'x') {
             //x
-            console.log("x venceu")
+            declareWinner('x');
         } else if(b3Child == 'o' && b5Child == 'o' && b7Child == 'o') {
             //
-            console.log("o venceu")
+            declareWinner('o');
           }
 
     }
@@ -156,4 +156,28 @@ function checkWinCondition() {
     }
 
 
+}
+
+// limpar o jogo, declara o vencedor e atuliza o placar
+
+function declareWinner(winner) {
+    
+    let scoreboardX = document.querySelector("#scoreboard-1");
+    let scoreboardO = document.querySelector("#scoreboard-2");
+    let msg = ' ';
+
+    if(winner == 'x') {
+        scoreboardX.textContent = parseInt(scoreboardX.textContent) + 1;
+        msg = 'O jogador  1  venceu!';
+    } else if (winner == 'o') {
+        scoreboardO.textContent = parseInt(scoreboardO.textContent) + 1;
+        msg = 'O jogador  2  venceu!';       
+    } else {
+        msg = "Deu velha!";
+    }
+
+    //exibir messagem
+
+    messageText.innerHTML = msg;
+    messageContainer.classList.remove("hide")
 }
