@@ -10,9 +10,7 @@ let secondPlayer;
 let player1 = 0;
 let player2 = 0;
 
-
 //adicionando  o evento de click aos boxes
-
 for(let i = 0; i < boxes.length; i++) {
 
     // quando alguem clica na caixa
@@ -20,10 +18,10 @@ for(let i = 0; i < boxes.length; i++) {
 
         let el = checkEl(player1, player2);
       
-
     //verifica se ja tem x ou o
       if(this.childNodes.length == 0) {
-        let cloneEl = el.cloneNode(true)
+
+        let cloneEl = el.cloneNode(true);
 
         this.appendChild(cloneEl);
 
@@ -33,42 +31,45 @@ for(let i = 0; i < boxes.length; i++) {
        } else {
             player2++;
        }
+
        //checa quem venceu
        checkWinCondition();
-
-
       }
 
-    })
+    });
+
 }
 
 function checkEl(player1, player2) {
+        
     if(player1 == player2) {
         //x
         el = x;
     } else {
         //o
         el = o;
-    }
-    return el
+    }  
+
+    return el;
 }
 
 // ve quem ganhou
 
 function checkWinCondition() {
-    let b1 = document.getElementById("block-1")
-    let b2 = document.getElementById("block-2")
-    let b3 = document.getElementById("block-3")
-    let b4 = document.getElementById("block-4")
-    let b5 = document.getElementById("block-5")
-    let b6 = document.getElementById("block-6")
-    let b7 = document.getElementById("block-7")
-    let b8 = document.getElementById("block-8")
-    let b9 = document.getElementById("block-9")
+
+    let b1 = document.getElementById("block-1");
+    let b2 = document.getElementById("block-2");
+    let b3 = document.getElementById("block-3");
+    let b4 = document.getElementById("block-4");
+    let b5 = document.getElementById("block-5");
+    let b6 = document.getElementById("block-6");
+    let b7 = document.getElementById("block-7");
+    let b8 = document.getElementById("block-8");
+    let b9 = document.getElementById("block-9");
 
     // horizontal
     if(b1.childNodes.length > 0 && b2.childNodes.length > 0 && b3.childNodes.length > 0) {
-        
+
         let b1Child = b1.childNodes[0].className;
         let b2Child = b2.childNodes[0].className;
         let b3Child = b3.childNodes[0].className;
@@ -79,7 +80,7 @@ function checkWinCondition() {
         } else if(b1Child == 'o' && b2Child == 'o' && b3Child == 'o') {
             //
             declareWinner('o');
-          }
+        }
 
     }
     //2
@@ -111,7 +112,7 @@ function checkWinCondition() {
         } else if(b7Child == 'o' && b8Child == 'o' && b9Child == 'o') {
             //
             declareWinner('o');
-          }
+         }
 
     }
 
@@ -126,7 +127,7 @@ function checkWinCondition() {
             //x
             declareWinner('x');
         } else if(b1Child == 'o' && b4Child == 'o' && b7Child == 'o') {
-            //
+            //o
             declareWinner('o');
           }
         }
@@ -164,50 +165,52 @@ function checkWinCondition() {
         }
 
     
-    // diagonal
-    if(b1.childNodes.length > 0 && b5.childNodes.length > 0 && b9.childNodes.length > 0) {
+        // diagonal
+        if(b1.childNodes.length > 0 && b5.childNodes.length > 0 && b9.childNodes.length > 0) {
 
-        let b1Child = b1.childNodes[0].className;
-        let b5Child = b5.childNodes[0].className;
-        let b9Child = b9.childNodes[0].className;
+          let b1Child = b1.childNodes[0].className;
+          let b5Child = b5.childNodes[0].className;
+          let b9Child = b9.childNodes[0].className;
 
-        if(b1Child == 'x' && b5Child == 'x' && b9Child == 'x') {
-            //x
-            declareWinner('x');
-        } else if(b1Child == 'o' && b5Child == 'o' && b9Child == 'o') {
+           if(b1Child == 'x' && b5Child == 'x' && b9Child == 'x') {
+              //x
+               declareWinner('x');
+              } else if(b1Child == 'o' && b5Child == 'o' && b9Child == 'o') {
             //
-            declareWinner('o');
-          }
+               declareWinner('o');
+             }
 
-    }
-    if(b3.childNodes.length > 0 && b5.childNodes.length > 0 && b7.childNodes.length > 0) {
+         }
 
-        let b3Child = b3.childNodes[0].className;
-        let b5Child = b5.childNodes[0].className;
-        let b7Child = b7.childNodes[0].className;
+         if(b3.childNodes.length > 0 && b5.childNodes.length > 0 && b7.childNodes.length > 0) {
 
-        if(b3Child == 'x' && b5Child == 'x' && b7Child == 'x') {
-            //x
-            declareWinner('x');
-        } else if(b3Child == 'o' && b5Child == 'o' && b7Child == 'o') {
-            //
-            declareWinner('o');
-          }
+            let b3Child = b3.childNodes[0].className;
+            let b5Child = b5.childNodes[0].className;
+            let b7Child = b7.childNodes[0].className;
 
-    }
+            if(b3Child == 'x' && b5Child == 'x' && b7Child == 'x') {
+                //x
+                declareWinner('x');
+           } else if(b3Child == 'o' && b5Child == 'o' && b7Child == 'o') {
+                 //
+               declareWinner('o');
+           }
 
-    //deu velha
-    let counter = 0;
+         }
 
-    for(let i = 0; i < boxes.length; i++) {
-        if(boxes[i].childNodes[0] != undefined) {
-            counter++;
-        }
-    }
 
-    if(counter == 9) {
-        console.log('deu velha')
-    }
+       //deu velha
+        let counter = 0;
+
+         for(let i = 0; i < boxes.length; i++) {
+              if(boxes[i].childNodes[0] != undefined) {
+                  counter++;
+            }
+         }
+
+         if(counter == 9) {
+            declareWinner('deu velha');
+         }
 
 
 }
@@ -218,7 +221,7 @@ function declareWinner(winner) {
     
     let scoreboardX = document.querySelector("#scoreboard-1");
     let scoreboardO = document.querySelector("#scoreboard-2");
-    let msg = ' ';
+    let msg = '';
 
     if(winner == 'x') {
         scoreboardX.textContent = parseInt(scoreboardX.textContent) + 1;
@@ -234,5 +237,10 @@ function declareWinner(winner) {
 
     messageText.innerHTML = msg;
     messageContainer.classList.remove("hide");
+
+    //esconde mes
+    setTimeout(function() {
+
+    }, 3000 );
 
 }
