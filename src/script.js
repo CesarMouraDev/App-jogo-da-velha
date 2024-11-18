@@ -75,7 +75,7 @@ for(let i = 0; i < buttons.length; i++) {
 
 // ve quem vai jogar
 function checkEl(player1, player2) {
-
+    
     if(player1 == player2) {
         //x
         el = x;
