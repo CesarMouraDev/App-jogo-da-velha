@@ -1,7 +1,7 @@
 let x = document.querySelector(".x");
 let o = document.querySelector(".o");
 let boxes = document.querySelectorAll(".box");
-let buttons = document.querySelectorAll("#buttons-container button");
+let buttons = document.querySelectorAll("#bottons-container button");
 let messageContainer = document.querySelector("#message");
 let messageText = document.querySelector("#message p");
 let secondPlayer;
@@ -268,9 +268,9 @@ function declareWinner(winner) {
     messageText.innerHTML = msg;
     messageContainer.classList.remove("hide");
 
-    //esconde mes
+    //esconde messagem
     setTimeout(function() {
-        messageContainer.classList.add("hide");
+     messageContainer.classList.add("hide");
     }, 3000 );
 
     //zera a jogadas
